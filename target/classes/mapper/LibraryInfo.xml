@@ -3,7 +3,10 @@
    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="SQL.LIBRARYINFO">
-  <select id="selectLibraryInfoList" resultType="li">
+	<select id="selectDate" resultType="map">
+		select to_char(sysdate, 'YY-MM-DD')from dual
+	</select>
+ <!--  <select id="selectLibraryInfoList" resultType="li">
     select * from library_info
     <where>
   		<if test="linum!=null">and lino = #{lino}</if>
@@ -45,7 +48,7 @@
   <delete id="deleteLibraryInfo" parameterType="int">
   	delete from level_info
   	where lino=#{lino}
-  </delete>
+  </delete> -->
 </mapper>
 
 
