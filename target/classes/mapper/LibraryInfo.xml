@@ -3,22 +3,22 @@
    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="SQL.LIBRARYINFO">
-	<select id="selectDate" resultType="map">
+	 <!--<select id="selectDate" resultType="map">
 		select to_char(sysdate, 'YY-MM-DD')from dual
-	</select>
- <!--  <select id="selectLibraryInfoList" resultType="li">
+	</select> 접속 확인-->
+  <select id="selectLibraryInfoList" resultType="li">
     select * from library_info
     <where>
-  		<if test="linum!=null">and lino = #{lino}</if>
-  		<if test="lilevel!=null">and liprice = #{liprice}</if>
+  		<if test="lino!=null">and lino = #{lino}</if>
+  		<if test="liprice!=null">and liprice = #{liprice}</if>
   		<if test="liname!=null">and liname like '%'||#{liname}||'%'</if>
-  		<if test="lidesc!=null">and ligenre = #{ligenre}</if>
-  		<if test="linum!=null">and lidate = #{lidate}</if>
-  		<if test="lilevel!=null">and lipublisher = #{lipublisher}</if>
-  		<if test="linum!=null">and liwriter = #{liwriter}</if>
-  		<if test="lilevel!=null">and liimg = #{liimg}</if>
-  		<if test="linum!=null">and libook = #{libook}</if>
-  		<if test="lilevel!=null">and listar = #{listar}</if>
+  		<if test="ligenre!=null">and ligenre = #{ligenre}</if>
+  		<if test="lidate!=null">and lidate = #{lidate}</if>
+  		<if test="lipublisher!=null">and lipublisher = #{lipublisher}</if>
+  		<if test="liwriter!=null">and liwriter = #{liwriter}</if>
+  		<if test="liimg!=null">and liimg = #{liimg}</if>
+  		<if test="libook!=null">and libook = #{libook}</if>
+  		<if test="listar!=null">and listar = #{listar}</if>
     </where>
     order by lino
   </select>
@@ -33,22 +33,22 @@
    <update id="updateLibraryInfo" parameterType="li">
    	update library_info
    	<set>
-   		<if test="lilevel!=null">liprice = #{liprice},</if>
+   		<if test="liprice!=null">liprice = #{liprice},</if>
    		<if test="liname!=null">liname = #{liname},</if>
-   		<if test="lidesc!=null">ligenre = #{ligenre},</if>
-   		<if test="lilevel!=null">lidate = #{lidate},</if>
-   		<if test="liname!=null">lipublisher = #{lipublisher},</if>
-   		<if test="lidesc!=null">liwriter = #{liwriter},</if>
-   		<if test="lilevel!=null">liimg = #{liimg},</if>
-   		<if test="liname!=null">libook = #{libook},</if>
-   		<if test="lidesc!=null">listar = #{listar},</if>
+   		<if test="ligenre!=null">ligenre = #{ligenre},</if>
+   		<if test="lidate!=null">lidate = #{lidate},</if>
+   		<if test="lipublisher!=null">lipublisher = #{lipublisher},</if>
+   		<if test="liwriter!=null">liwriter = #{liwriter},</if>
+   		<if test="liimg!=null">liimg = #{liimg},</if>
+   		<if test="libook!=null">libook = #{libook},</if>
+   		<if test="listar!=null">listar = #{listar},</if>
   	</set>
   	where lino=#{lino}
   </update>
   <delete id="deleteLibraryInfo" parameterType="int">
   	delete from level_info
   	where lino=#{lino}
-  </delete> -->
+  </delete>
 </mapper>
 
 
