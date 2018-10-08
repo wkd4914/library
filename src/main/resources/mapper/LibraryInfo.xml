@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SQL.LEVELINFO">
+  <select id="selectLibraryInfoList" resultType="li">
+    select * from library_info
+    <where>
+  		<if test="linum!=null">and lino = #{lino}</if>
+  		<if test="lilevel!=null">and liprice = #{liprice}</if>
+  		<if test="liname!=null">and liname like '%'||#{liname}||'%'</if>
+  		<if test="lidesc!=null">and ligenre = #{ligenre}</if>
+  		<if test="linum!=null">and lidate = #{lidate}</if>
+  		<if test="lilevel!=null">and lipublisher = #{lipublisher}</if>
+  		<if test="linum!=null">and liwriter = #{liwriter}</if>
+  		<if test="lilevel!=null">and liimg = #{liimg}</if>
+  		<if test="linum!=null">and libook = #{libook}</if>
+  		<if test="lilevel!=null">and listar = #{listar}</if>
+    </where>
+    order by lino
+  </select>
+  <select id="selectLibraryInfo" resultType="li">
+  	select * from library_info
+  	where lino = #{lino}
+  </select>
+  <insert id="insertLibraryInfo" parameterType="li">
+  	insert into library_info(lino, liprice, liname, ligenre, lidate, lipublisher, liwriter, liimg, libook, listar)
+   	values(seq_lino.nextval, #{liprice}, #{liname},#{ligenre}, #{lidate}, #{lipublisher},#{liwriter}, #{liimg}, #{libook},#{listar})
+   </insert>
+   <update id="updateLibraryInfo" parameterType="li">
+   	update library_info
+   	<set>
+   		<if test="lilevel!=null">liprice = #{liprice},</if>
+   		<if test="liname!=null">liname = #{liname},</if>
+   		<if test="lidesc!=null">ligenre = #{ligenre},</if>
+   		<if test="lilevel!=null">lidate = #{lidate},</if>
+   		<if test="liname!=null">lipublisher = #{lipublisher},</if>
+   		<if test="lidesc!=null">liwriter = #{liwriter},</if>
+   		<if test="lilevel!=null">liimg = #{liimg},</if>
+   		<if test="liname!=null">libook = #{libook},</if>
+   		<if test="lidesc!=null">listar = #{listar},</if>
+  	</set>
+  	where lino=#{lino}
+  </update>
+  <delete id="deleteLibraryInfo" parameterType="int">
+  	delete from level_info
+  	where lino=#{lino}
+  </delete>
+ </mapper>
