@@ -53,7 +53,7 @@ var AjaxUtil = function(conf){
 					html += '<td><input type="text" id="lidate'+ li.lino+'" value="' + li.lidate + '"></td>';
 					html += '<td><input type="text" id="lipublisher' + li.lino+'" value="' + li.lipublisher + '"></td>';
 					html += '<td><input type="text" id="liwriter' + li.lino+'" value="' + li.liwriter + '"></td>';
-					html += '<td><input type="text" id="liimg'+ li.lino+'" value="' + li.liimg + '"></td>';
+					html += '<td><input type="file" id="liimg' + li.lino+'" value="' + li.liimg + '"></td>';
 					html += '<td><input type="text" id="libook' + li.lino+'" value="' + li.libook + '"></td>';
 					html += '<td><input type="text" id="listar' + li.lino+'" value="' + li.listar + '"></td>';
 					html += '<td><button onclick="updateLibraryInfo('+li.lino+')">수정</button></td>';
@@ -104,7 +104,7 @@ function addlibraryInfo(){
 		html += '<td><input type="text" id="lidate" value=""></td>';
 		html += '<td><input type="text" id="lipublisher" value=""></td>';
 		html += '<td><input type="text" id="liwriter" value=""></td>';
-		html += '<td><input type="text" id="liimg" value=""></td>';
+		html += '<td><input type="file" id="liimg" value=""></td>';
 		html += '<td><input type="text" id="libook" value=""></td>';
 		html += '<td><input type="text" id="listar" value=""></td>';
 		html += '<td><button onclick="savelibraryInfo()">저장</button></td>';
@@ -165,6 +165,7 @@ function savelibraryInfo(){
 	var au = new AjaxUtil(conf);
 	au.send();
 }
+
 function deleteLibraryInfo(lino){
 	
 	var conf = {
