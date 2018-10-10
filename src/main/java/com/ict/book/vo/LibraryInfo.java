@@ -1,5 +1,8 @@
 package com.ict.book.vo;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("li")
 public class LibraryInfo {
 
 	private Integer lino;
