@@ -4,9 +4,11 @@
 <head>
 <meta charset=UTF-8">
 <title>도서 책 추가 및 정보</title>
-<link rel = "stylesheet" href = "/views/css/bootstrap.css/">
-<link rel = "stylesheet" href = "/views/css/bootstrap.theme.css/">
-<!-- <link rel = "stylesheet" href = "/views/css/common.css/"> -->
+<link rel = "stylesheet" href = "/WEB-INF/views/css/bootstrap.css/">
+<link rel = "stylesheet" href = "/WEB-INF/views/css/bootstrap-theme.css/">
+
+<script src="/WEB-INF/views/js/jquery.js"></script>
+<script src="/WEB-INF/views/js/boorstrap.js"></script>
 
 
 </head>
@@ -71,7 +73,7 @@ window.addEventListener('load',function(){
 					html += '<td><input type="text" id="listar' + li.lino+'" value="' + li.listar + '"></td>';
 					html += '</tr>';
 				}
-				document.querySelector(#liBody).insertAdjacentHTML('beforeend',html);
+				document.querySelector('#liBody').insertAdjacentHTML('beforeend',html);
 	}
 	}
 	var au = new AjaxUtil(conf);
@@ -81,6 +83,8 @@ window.addEventListener('load',function(){
 		
 <body>
 <img src = "views/img/book.jpg">
+<script src = "js/jquery.js"></script>
+<script src = "js/bootstrap.js"></script>
 liname : <input type="text" name="liname">
 <button>검색</button>
 <table border='1'>
