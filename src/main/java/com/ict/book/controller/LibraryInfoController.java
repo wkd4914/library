@@ -1,6 +1,7 @@
 package com.ict.book.controller;
  import java.util.List;
  import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,10 @@ public class LibraryInfoController {
  	@RequestMapping(value="/libraryinfo",method=RequestMethod.GET)  
  	public @ResponseBody List<LibraryInfo> getLevelInfoList(@ModelAttribute LibraryInfo li){	//@ form 
  		return lis.getLibraryInfoList(li);
+	}
+	@RequestMapping(value="/libraryinfo2",method=RequestMethod.GET)  
+ 	public String getLevelInfoList2(@ModelAttribute LibraryInfo li2){	//@ form 
+ 		return "library/list";
 	}
  	
  	@RequestMapping(value="/libraryinfo/{lino}",method=RequestMethod.GET)

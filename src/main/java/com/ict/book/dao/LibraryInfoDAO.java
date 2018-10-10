@@ -2,6 +2,8 @@ package com.ict.book.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.ict.book.vo.LibraryInfo;
 
 

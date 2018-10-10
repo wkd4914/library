@@ -28,7 +28,7 @@
   </select>
   <insert id="insertLibraryInfo" parameterType="li">
   	insert into library_info(lino, liprice, liname, ligenre, lidate, lipublisher, liwriter, liimg, libook, listar)
-   	values(seq_lino.nextval, #{liprice}, #{liname},#{ligenre}, #{lidate}, #{lipublisher},#{liwriter}, #{liimg}, #{libook},#{listar})
+   	values(lino.nextval, #{liprice}, #{liname},#{ligenre}, #{lidate}, #{lipublisher},#{liwriter}, #{liimg}, #{libook},#{listar})
    </insert>
    <update id="updateLibraryInfo" parameterType="li">
    	update library_info
@@ -46,7 +46,7 @@
   	where lino=#{lino}
   </update>
   <delete id="deleteLibraryInfo" parameterType="int">
-  	delete from level_info
+  	delete from library_info
   	where lino=#{lino}
 
   </delete>

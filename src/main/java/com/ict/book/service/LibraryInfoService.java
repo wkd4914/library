@@ -2,6 +2,8 @@ package com.ict.book.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.ict.book.vo.LibraryInfo;
 
 public interface LibraryInfoService {

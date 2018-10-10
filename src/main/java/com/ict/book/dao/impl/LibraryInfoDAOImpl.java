@@ -19,31 +19,31 @@ public class LibraryInfoDAOImpl implements LibraryInfoDAO {
 	@Override
 	public List<LibraryInfo> getLibraryInfoList(LibraryInfo li) {
 		// TODO Auto-generated method stub
-		return null;
+		return ss.selectList("SQL.LIBRARYINFO.selectLibraryInfoList",li);
 	}
 
 	@Override
 	public int insertLibraryInfo(LibraryInfo li) {
 		// TODO Auto-generated method stub
-		return 0;
+		return ss.insert("SQL.LIBRARYINFO.insertLibraryInfo",li);
 	}
 
 	@Override
 	public int deleteLibraryInfo(int lino) {
 		// TODO Auto-generated method stub
-		return 0;
+		return ss.delete("SQL.LIBRARYINFO.deleteLibraryInfo",lino);
 	}
 
 	@Override
 	public LibraryInfo getLibraryInfoList(Integer lino) {
 		// TODO Auto-generated method stub
-		return null;
+		return ss.selectOne("SQL.LIBRARYINFO.selectLibraryInfo",lino);
 	}
 
 	@Override
 	public int updateLibraryInfo(LibraryInfo li) {
 		// TODO Auto-generated method stub
-		return 0;
+		return ss.update("SQL.LIBRARYINFO.updateLibraryInfo",li);
 	}
 
 }

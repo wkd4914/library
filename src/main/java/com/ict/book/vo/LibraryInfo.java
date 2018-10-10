@@ -8,7 +8,7 @@ public class LibraryInfo {
 	private Integer lino;
  	private Integer liprice;
 	private String liname;
-	private String lidesc;
+	private String ligenre;
 	private String lidate;
 	private String lipublisher;
 	private String liwriter;
@@ -16,29 +16,12 @@ public class LibraryInfo {
 	private String libook;
 	private String listar;
 	
-	public LibraryInfo() {}
-
-	public LibraryInfo(Integer lino, Integer liprice, String liname, String lidesc, String lidate, String lipublisher,
-			String liwriter, String liimg, String libook, String listar) {
-		super();
-		this.lino = lino;
-		this.liprice = liprice;
-		this.liname = liname;
-		this.lidesc = lidesc;
-		this.lidate = lidate;
-		this.lipublisher = lipublisher;
-		this.liwriter = liwriter;
-		this.liimg = liimg;
-		this.libook = libook;
-		this.listar = listar;
-	}
-
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "LibraryInfo [lino=" + lino + ", liprice=" + liprice + ", liname=" + liname + ", lidesc=" + lidesc
+		return "LibraryInfo [lino=" + lino + ", liprice=" + liprice + ", liname=" + liname + ", ligenre=" + ligenre
 				+ ", lidate=" + lidate + ", lipublisher=" + lipublisher + ", liwriter=" + liwriter + ", liimg=" + liimg
 				+ ", libook=" + libook + ", listar=" + listar + "]";
 	}
@@ -56,6 +39,10 @@ public class LibraryInfo {
 	public void setLino(Integer lino) {
 		this.lino = lino;
 	}
+
+	/**
+	 * @return the liprice
+	 */
 	public Integer getLiprice() {
 		return liprice;
 	}
@@ -82,17 +69,17 @@ public class LibraryInfo {
 	}
 
 	/**
-	 * @return the lidesc
+	 * @return the ligenre
 	 */
-	public String getLidesc() {
-		return lidesc;
+	public String getLigenre() {
+		return ligenre;
 	}
 
 	/**
-	 * @param lidesc the lidesc to set
+	 * @param ligenre the ligenre to set
 	 */
-	public void setLidesc(String lidesc) {
-		this.lidesc = lidesc;
+	public void setLigenre(String ligenre) {
+		this.ligenre = ligenre;
 	}
 
 	/**
@@ -177,8 +164,25 @@ public class LibraryInfo {
 	 */
 	public void setListar(String listar) {
 		this.listar = listar;
-	};
-	
+	}
+
+	public LibraryInfo(Integer lino, Integer liprice, String liname, String ligenre, String lidate, String lipublisher,
+			String liwriter, String liimg, String libook, String listar) {
+		super();
+		this.lino = lino;
+		this.liprice = liprice;
+		this.liname = liname;
+		this.ligenre = ligenre;
+		this.lidate = lidate;
+		this.lipublisher = lipublisher;
+		this.liwriter = liwriter;
+		this.liimg = liimg;
+		this.libook = libook;
+		this.listar = listar;
+	}
+
+	public LibraryInfo() {}
+
 	
 	
 }
