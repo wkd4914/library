@@ -1,10 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-     pageEncoding="UTF-8"%>
- <!DOCTYPE html>
- <html>
- <head>
-<meta charset="UTF-8" />
-<title>Insert title here</title>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=UTF-8">
+<title>µµº≠ √• √ﬂ∞° π◊ ¡§∫∏</title>
+<link rel = "stylesheet" href = "/views/css/bootstrap.css/">
+<link rel = "stylesheet" href = "/views/css/bootstrap.theme.css/">
+<!-- <link rel = "stylesheet" href = "/views/css/common.css/"> -->
+
+
 </head>
 <script>
 var AjaxUtil = function(conf){
@@ -22,7 +26,7 @@ var AjaxUtil = function(conf){
 	
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState==4){
-			if(xhr.status=="200"){
+			iff(xhr.status=="200"){
 				success(xhr.responseText);
 			}else{
 				error(xhr.responseText);
@@ -31,153 +35,167 @@ var AjaxUtil = function(conf){
 	}
 	xhr.open(method,url);
 	if(method!='GET'){
-		xhr.setRequestHeader('Content-type','application/json;charset=utf-8');
+		xhr.RequestHeader('Content-type','application/json;charset=utf-8');
 	}
 	this.send = function(){
 		xhr.send(param);
-	}
-}
-
- window.addEventListener('load',function(){
+	}	
+}		
+window.addEventListener('load',function(){
 	var conf = {
-			url : '/levelinfo',
-			success : function(res){
+			url : '/Libraryinfo',
+			success:function(res){
 				res = JSON.parse(res);
 				var html = '';
 				for(var li of res){
 					html += '<tr>';
 					html += '<td>' + li.lino + '</td>';
-					html += '<td><input type="text" id="lilevel'+ li.lino+'" value="' + li.liprice + '"></td>';
 					html += '<td><input type="text" id="liname' + li.lino+'" value="' + li.liname + '"></td>';
-					html += '<td><input type="text" id="lidesc' + li.lino+'" value="' + li.ligenre + '"></td>';
-					html += '<td><input type="text" id="lilevel'+ li.lino+'" value="' + li.lidate + '"></td>';
-					html += '<td><input type="text" id="liname' + li.lino+'" value="' + li.lipublisher + '"></td>';
-					html += '<td><input type="text" id="lidesc' + li.lino+'" value="' + li.liwriter + '"></td>';
-					html += '<td><input type="text" id="lilevel'+ li.lino+'" value="' + li.liimg + '"></td>';
-					html += '<td><input type="text" id="liname' + li.lino+'" value="' + li.libook + '"></td>';
-					html += '<td><input type="text" id="lidesc' + li.lino+'" value="' + li.listar + '"></td>';
-					html += '<td><button onclick="updateLevelInfo('+li.lino+')">ÏàòÏ†ï</button></td>';
-					html += '<td><button onclick="deleteLevelInfo('+li.lino+')">ÏÇ≠Ï†ú</button></td>';
+					html += '<td><input type="text" id="liprice' + li.lino+'" value="' + li.liprice + '"></td>';
+					html += '<td><input type="text" id="ligenre' + li.lino+'" value="' + li.ligenre + '"></td>';
+					html += '<td><input type="text" id="lidate' + li.lino+'" value="' + li.lidate + '"></td>';
+					html += '<td><input type="text" id="lipublisher' + li.lino+'" value="' + li.lipublisher + '"></td>';
+					html += '<td><input type="text" id="liwriter' + li.lino+'" value="' + li.liwriter + '"></td>';
+					html += '<td><input type="text" id="liwhere' + li.lino+'" value="' + li.liwhere + '"></td>';
+					html += '<td><input type="text" id="liimg' + li.lino+'" value="' + li.liimg + '"></td>';
+					html += '<td><input type="text" id="libook' + li.lino+'" value="' + li.libook + '"></td>';
+					
+					/* html +='<td><select name="listar" + li.lino id="listar"'
+					html +='<option value ="1">1</option>';
+					html +='<option value ="2">2</option>';
+					html +='<option value ="3">3</option>'; 
+					html +='<option value ="4">4</option>'; 
+					html +='<option value ="5" selected>5</option>'; 
+					html +='</select>'; */
+						
+					html += '<td><input type="text" id="listar' + li.lino+'" value="' + li.listar + '"></td>';
 					html += '</tr>';
-				} 
-				document.querySelector('#liBody').insertAdjacentHTML('beforeend',html);
-			}
+				}
+				document.querySelector(#liBody).insertAdjacentHTML('beforeend',html);
+	}
 	}
 	var au = new AjaxUtil(conf);
 	au.send();
-});
-</script>
-
-<body> 
+});		
+</script>		
+		
+<body>
+<img src = "views/img/book.jpg">
 liname : <input type="text" name="liname">
-<button>Í≤ÄÏÉâ</button>
-<table border="1">
+<button>∞Àªˆ</button>
+<table border='1'>
 	<thead>
 		<tr>
- 			<th>lino</th>
- 			<th>liprice</th>
- 			<th>liname</th>
- 			<th>ligenre</th>
- 			<th>lidate</th>
- 			<th>lipublisher</th>
- 			<th>liwriter</th>
- 			<th>liimg</th>
- 			<th>libook</th>
- 			<th>listar</th>
-			<th>ÏàòÏ†ï</th>
-			<th>ÏÇ≠Ï†ú</th>
+			<th>lino</th>
+			<th>liname</th>
+			<th>liprice</th>
+			<th>ligenre</th>
+			<th>lidate</th>
+			<th>lipublisher</th>
+			<th>liwriter</th>
+			<th>liwhere</th>
+			<th>liimg</th>
+			<th>libook</th>
+			<th>listar</th>
+			<th>ºˆ¡§</th>
+			<th>ªË¡¶</th>
 		</tr>
 	</thead>
 	<tbody id="liBody">
 	</tbody>
 </table>
-<button onclick="addLevelInfo()">ÎèÑÏÑú Ï∂îÍ∞Ä</button>
+<button onclick="addLibraryInfo()">µµº≠ √ﬂ∞°</button>
 <script>
-function addLevelInfo(){
+function addLibraryInfo(){
 		var html = '<tr>';
 		html += '<td>&nbsp;</td>';
-		html += '<td><input type="text" id="liprice" value=""></td>';
 		html += '<td><input type="text" id="liname" value=""></td>';
+		html += '<td><input type="text" id="liprice" value=""></td>';
 		html += '<td><input type="text" id="ligenre" value=""></td>';
 		html += '<td><input type="text" id="lidate" value=""></td>';
 		html += '<td><input type="text" id="lipublisher" value=""></td>';
 		html += '<td><input type="text" id="liwriter" value=""></td>';
+		html += '<td><input type="text" id="liwhere" value=""></td>';
 		html += '<td><input type="text" id="liimg" value=""></td>';
 		html += '<td><input type="text" id="libook" value=""></td>';
 		html += '<td><input type="text" id="listar" value=""></td>';
-		html += '<td><button onclick="saveLevelInfo()">Ï†ÄÏû•</button></td>';
+		html += '<td><button onclick="saveLibraryInfo()">¿˙¿Â</button></td>';
 		html += '</tr>';
-	document.querySelector('#liBody').insertAdjacentHTML('beforeend',html);
+		doucment.querySelector('#liBody').insertAdjacentHTML('beforeend',html);
 }
 
-function saveLevelInfo(){
-	var liprice = document.querySelector("#liprice").value;
- 	var liname = document.querySelector("#liname").value;
- 	var ligenre = document.querySelector("#ligenre").value;
- 	var lidate = document.querySelector("#lidate").value;
- 	var lipublisher = document.querySelector("#lipublisher").value;
- 	var liwriter = document.querySelector("#liwriter").value;
- 	var liimg = document.querySelector("#liimg").value;
- 	var libook = document.querySelector("#libook").value;
- 	var listar = document.querySelector("#listar").value;
- 	var params = {liprice:liprice, liname:liname, ligenre:ligenre, lidate:lidate, lipublisher:lipublisher, liwriter:liwriter, liimg:liimg, libook:libook, listar:listar};
- 	params = JSON.stringify(params);
- 	
- 	var conf = {
-			url : '/libraryinfo/',
-			method : 'POST',
-			param : params,
-			success : function(res){
-				if(res=='1'){
-				alert('Ï†ÄÏû•Ïò§ÏºÄÏù¥');
-				initList();
-			}
-	}
-}
-	var au = new AjaxUtil(conf);
-	au.send();
-}
-
- function updateLevelInfo(linum){
-	 var liprice = document.querySelector("#liprice"+li.no).value;
-	 	var liname = document.querySelector("#liname"+li.no).value;
-	 	var ligenre = document.querySelector("#ligenre"+li.no).value;
-	 	var lidate = document.querySelector("#lidate"+li.no).value;
-	 	var lipublisher = document.querySelector("#lipublisher"+li.no).value;
-	 	var liwriter = document.querySelector("#liwriter"+li.no).value;
-	 	var liimg = document.querySelector("#liimg"+li.no).value;
-	 	var libook = document.querySelector("#libook"+li.no).value;
-	 	var listar = document.querySelector("#listar"+li.no).value;
-	 	var params = {liprice:liprice, liname:liname, ligenre:ligenre, lidate:lidate, lipublisher:lipublisher, liwriter:liwriter, liimg:liimg, libook:libook, listar:listar};
-	 	params = JSON.stringify(params);
-	 	
- 	var conf = {
-			url : '/libraryinfo/' + lino,
-			method : 'PUT',
-			param : params,
-			success : function(res){
-				alert(res);
-			}
-	}
- 	
-	var au = new AjaxUtil(conf);
-	au.send();
-}
-function deleteLevelInfo(linum){
+function saveLibraryInfo(){
+	var liname = document.querySelector('#liname').value;	
+	var liprice = document.querySelector('#liprice').value;	
+	var ligenre = document.querySelector('#ligenre').value;	
+	var lidate = document.querySelector('#lidate').value;	
+	var lipublisher = document.querySelector('#lipublisher').value;	
+	var liwriter = document.querySelector('#liwriter').value;	
+	var liwhere = document.querySelector('#liwhere').value;	
+	var liimg = document.querySelector('#liimg').value;	
+	var libook = document.querySelector('#libook').value;	
+	var listar = document.querySelector('#listar').value;	
+	var params = {liname:liname, liprice:liprice, ligenre:ligenre, lidate:lidate, lipublisher:lipublisher, 
+			liwriter:liwriter, liwhere:liwhere, liimg:liimg, libook:libook, listar:listar};
+	params = JSON.stringify(params);
 	
 	var conf = {
-			url : '/libraryinfo/' + lino,
-			method : 'DELETE',
+			url :'/libraryInfo/',
+			method : 'POST',
+			param : params,
+	
 			success : function(res){
 				if(res=='1'){
-					alert("ÏÇ≠Ï†ú „Öá„Öã");
+					alert('µµº≠¿˙¿Â');
+					initList();
+				}
+			}
+	}
+		var au = new AjaxUtil(conf);
+	au.send();
+}	
+
+function updateLibraryInfo(lino){
+	var liname = document.querySelector("#liname"+lino).value;
+	var liprice = document.querySelector("#liprice"+lino).value;
+	var ligenre = document.querySelector("#ligenre"+lino).value;
+	var lidate = document.querySelector("#lidate"+lino).value;
+	var lipublisher = document.querySelector("#lipublisher"+lino).value;
+	var liwriter = document.querySelector("#liwriter"+lino).value;
+	var liwhere = document.querySelector("#liwhere"+lino).value;
+	var liimg = document.querySelector("#liimg"+lino).value;
+	var libook = document.querySelector("#libook"+lino).value;
+	var listar = document.querySelector("#listar"+lino).value;
+	params = {liname:liname, liprice:liprice, ligenre:ligenre, lidate:lidate, lipublisher:lipublisher, 
+			liwriter:liwriter, liwhere:liwhere, liimg:liimg, libook:libook, listar:listar, lino:lino};
+	params = JSON.stringify(params);
+	
+	var conf = {
+			url : '/libraryinfo/' + linum,
+			method : 'PUT',
+			param : params,
+	success : function(res){
+		alert(res);
+	}
+	}
+	var au = new AjaxUtil(conf);
+	au.send();
+}
+function deleteLibraryInfo(lino){
+	var conf = {
+			url : '/libraryinfo' + lino,
+			method : 'DELETE',
+			success : function(res){
+				if(res==1){
+					alert('ªË¡¶');
 					location.href="/url/libraryinfo:list";
 				}
 			}
 	}
 	var au = new AjaxUtil(conf);
-	au.send();
+	au.send;
 }
+
 </script>
 </body>
- </html>
+</html>
