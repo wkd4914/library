@@ -4,10 +4,13 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.ict.book.dao.LibraryInfoDAO;
 import com.ict.book.vo.LibraryInfo;
 
+
+@Repository
 public class LibraryInfoDAOImpl implements LibraryInfoDAO {
 	
 	@Autowired

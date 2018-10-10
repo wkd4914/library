@@ -3,11 +3,13 @@ package com.ict.book.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ict.book.dao.LibraryInfoDAO;
 import com.ict.book.service.LibraryInfoService;
 import com.ict.book.vo.LibraryInfo;
 
+@Service
 public class LibraryInfoServiceImpl implements LibraryInfoService {
 
 	@Autowired
