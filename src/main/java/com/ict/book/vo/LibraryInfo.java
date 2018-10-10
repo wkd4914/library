@@ -56,10 +56,6 @@ public class LibraryInfo {
 	public void setLino(Integer lino) {
 		this.lino = lino;
 	}
-
-	/**
-	 * @return the liprice
-	 */
 	public Integer getLiprice() {
 		return liprice;
 	}
