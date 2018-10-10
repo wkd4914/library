@@ -53,7 +53,8 @@ var AjaxUtil = function(conf){
 					html += '<td><input type="text" id="lidate'+ li.lino+'" value="' + li.lidate + '"></td>';
 					html += '<td><input type="text" id="lipublisher' + li.lino+'" value="' + li.lipublisher + '"></td>';
 					html += '<td><input type="text" id="liwriter' + li.lino+'" value="' + li.liwriter + '"></td>';
-					html += '<td><input type="file" id="liimg' + li.lino+'" value="' + li.liimg + '"></td>';
+				//	html += '<td><input type="file" id="liimg' + li.lino+'" value="' + li.liimg + '"></td>';
+					html += '<td><img src="/resources' + li.liimg + '" style="width:100px"></td>';
 					html += '<td><input type="text" id="libook' + li.lino+'" value="' + li.libook + '"></td>';
 					html += '<td><input type="text" id="listar' + li.lino+'" value="' + li.listar + '"></td>';
 					html += '<td><button onclick="updateLibraryInfo('+li.lino+')">수정</button></td>';
@@ -71,8 +72,9 @@ var AjaxUtil = function(conf){
 </script>
 
 <body> 
+<form enctype="multipart/form-data">
 liname : <input type="text" name="liname">
-<button>검색</button>
+<button type="button">검색</button>
 <table border="1" cellpadding="1" cellspacing="1">
 	<thead>
 		<tr>
@@ -93,7 +95,8 @@ liname : <input type="text" name="liname">
 	<tbody id="liBody">
 	</tbody>
 </table>
-<button onclick="addlibraryInfo()">도서 추가</button>
+<button onclick="addlibraryInfo()" type="button">도서 추가</button>
+</form>
 <script>
 function addlibraryInfo(){
 		var html = '<tr>';
@@ -107,9 +110,31 @@ function addlibraryInfo(){
 		html += '<td><input type="file" id="liimg" value=""></td>';
 		html += '<td><input type="text" id="libook" value=""></td>';
 		html += '<td><input type="text" id="listar" value=""></td>';
-		html += '<td><button onclick="savelibraryInfo()">저장</button></td>';
+		html += '<td><button onclick="savelibraryInfo()" type="button">저장</button></td>';
+		html += '<td><button onclick="savelibraryInfo1()" type="button">파일저장테스트</button></td>';
 		html += '</tr>';
 	document.querySelector('#liBody').insertAdjacentHTML('beforeend',html);
+}
+
+function savelibraryInfo1(){
+	var form = document.querySelector('#form');
+	var formData = new FormData(form);
+	var url = '/libraryinfoTest';
+	var method = 'POST';
+	
+	var xhr = new XMLHttpRequest();
+	
+	xhr.onreadystatechange = function(){
+		alert(xhr.response);
+	}
+	
+	formData.forEach((e,k) => {
+		alert(e);
+	});
+	
+	xhr.open(method,url);
+	xhr.send(formData);
+	
 }
 
 function savelibraryInfo(){

@@ -1,7 +1,16 @@
 package com.ict.book.controller;
- import java.util.List;
- import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+ import java.io.File;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,6 +49,56 @@ public class LibraryInfoController {
  	public @ResponseBody Integer insertLevelInfo(@RequestBody LibraryInfo li) {
 		return lis.insertLibraryInfo(li);
 	}
+ 	
+ 	@RequestMapping(value="/libraryinfoTest",method=RequestMethod.POST)
+ 	public @ResponseBody Integer fileTest(HttpServletRequest request) {
+ 		String tmpPath = System.getProperty("java.io.tmpdir");
+ 		File tmpDir = new File(tmpPath);
+ 		DiskFileItemFactory dFactory = new DiskFileItemFactory();
+
+ 		dFactory.setRepository(tmpDir);
+ 		dFactory.setSizeThreshold(1024*1024*10);
+
+ 		ServletFileUpload sfu = new ServletFileUpload();
+ 		sfu.setFileItemFactory(dFactory);
+ 		sfu.setFileSizeMax(1024*1024*100);
+
+ 		sfu.setSizeMax(1024*1024*200);
+
+
+ 		List<FileItem> fList;
+		try {
+			fList = sfu.parseRequest(request);
+			System.out.println(fList);
+			String savePath = "C:/jsp_study/workspace/library/src/main/webapp/resources/upload";
+			Map<String,String> pMap = new HashMap<String,String>();
+			
+			for(int i=0;i<fList.size();i++){
+				FileItem fi = fList.get(i);
+				if(fi.isFormField()){
+					String name = fi.getFieldName();
+					String value = fi.getString("utf-8");
+					pMap.put(name, value);
+				}else{
+					String name = fi.getFieldName();
+					String value = fi.getName();
+					if(value.equals("")) continue;
+					savePath = savePath + File.separator + value;
+					File save = new File(savePath);
+					fi.write(save);
+					pMap.put(name, value);
+				}
+			}
+			
+			System.out.println(pMap);
+			
+		} catch (FileUploadException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+ 		return 1;
+ 	}
  	
  	
  	@RequestMapping(value="/libraryinfo/{lino}",method=RequestMethod.PUT)
