@@ -11,7 +11,9 @@
     <where>
   		<!-- <if test="lino!=null">and lino = #{lino}</if>
   		<if test="liprice!=null">and liprice = #{liprice}</if> -->
+  		
   		<if test="liname!=null">and liname like '%'||#{liname}||'%'</if>
+  		
   		<!-- <if test="ligenre!=null">and ligenre = #{ligenre}</if>
   		<if test="lidate!=null">and lidate = #{lidate}</if>
   		<if test="lipublisher!=null">and lipublisher = #{lipublisher}</if>

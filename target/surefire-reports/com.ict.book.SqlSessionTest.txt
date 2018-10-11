@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.ict.book.SqlSessionTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.86 sec <<< FAILURE!
-test(com.ict.book.SqlSessionTest)  Time elapsed: 0.031 sec  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.491 sec <<< FAILURE!
+test(com.ict.book.SqlSessionTest)  Time elapsed: 0.018 sec  <<< ERROR!
 org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
 ### Error querying database.  Cause: java.lang.IllegalArgumentException: Mapped Statements collection does not contain value for SQL.LIBRARYINFO.selectDate
 ### Cause: java.lang.IllegalArgumentException: Mapped Statements collection does not contain value for SQL.LIBRARYINFO.selectDate

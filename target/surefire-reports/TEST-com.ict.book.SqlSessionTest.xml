@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="com.ict.book.SqlSessionTest" time="0.031" errors="1" skipped="0">
+<testsuite tests="1" failures="0" name="com.ict.book.SqlSessionTest" time="0.018" errors="1" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\jsp_study\java\jdk1.8\jre\bin"/>
     <property name="java.vm.version" value="25.171-b11"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="C:\jsp_study\workspace\git\library"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\Administrator\git\library"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=";"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -16,30 +16,30 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="Service Pack 1"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\jsp_study\workspace\git\library"/>
+    <property name="user.dir" value="C:\Users\Administrator\git\library"/>
     <property name="java.runtime.version" value="1.8.0_171-b11"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\jsp_study\java\jdk1.8\jre\lib\endorsed"/>
     <property name="os.arch" value="amd64"/>
-    <property name="java.io.tmpdir" value="C:\Users\KOITT0~1\AppData\Local\Temp\"/>
+    <property name="java.io.tmpdir" value="C:\Users\ADMINI~1\AppData\Local\Temp\"/>
     <property name="line.separator" value="
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 7"/>
-    <property name="classworlds.conf" value="C:\jsp_study\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf6610905712888540609.tmp"/>
+    <property name="classworlds.conf" value="C:\jsp_study\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf4787134071888300917.tmp"/>
     <property name="sun.jnu.encoding" value="MS949"/>
-    <property name="java.library.path" value="C:\jsp_study\java\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\jsp_khg\oraclexe\app\oracle\product\11.2.0\server\bin;;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\jsp_study\java\jdk1.8\bin;C:\Program Files\Bandizip\;C:\jsp_study\java\jdk1.8\bin;C:\jsp_study\maven-3.5.4\bin;."/>
+    <property name="java.library.path" value="C:\jsp_study\java\jdk1.8\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\oraclexe\app\oracle\product\11.2.0\server\bin;;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:Program File\bandizip\jsp_study\jdk1.8\bin;C:\jsp_study\maven-3.5.4\bin;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="os.version" value="6.1"/>
-    <property name="user.home" value="C:\Users\koitt03-A"/>
+    <property name="user.home" value="C:\Users\Administrator"/>
     <property name="user.timezone" value="Asia/Seoul"/>
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
     <property name="java.specification.version" value="1.8"/>
     <property name="file.encoding" value="UTF-8"/>
-    <property name="user.name" value="koitt03-A"/>
+    <property name="user.name" value="Administrator"/>
     <property name="java.class.path" value="C:\jsp_study\maven-3.5.4\boot\plexus-classworlds-2.5.2.jar"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
@@ -61,7 +61,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.ict.book.SqlSessionTest" name="test" time="0.031">
+  <testcase classname="com.ict.book.SqlSessionTest" name="test" time="0.018">
     <error message="nested exception is org.apache.ibatis.exceptions.PersistenceException: 
 ### Error querying database.  Cause: java.lang.IllegalArgumentException: Mapped Statements collection does not contain value for SQL.LIBRARYINFO.selectDate
 ### Cause: java.lang.IllegalArgumentException: Mapped Statements collection does not contain value for SQL.LIBRARYINFO.selectDate" type="org.mybatis.spring.MyBatisSystemException">org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
@@ -131,7 +131,7 @@ Caused by: java.lang.IllegalArgumentException: Mapped Statements collection does
     <system-out>INFO : org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
 INFO : org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@210366b4, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@eec5a4a, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2b2948e2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6ddf90b0, org.springframework.test.context.transaction.TransactionalTestExecutionListener@57536d79, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3b0143d3]
 INFO : org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from URL [file:src/main/webapp/WEB-INF/spring/root-context.xml]
-INFO : org.springframework.context.support.GenericApplicationContext - Refreshing org.springframework.context.support.GenericApplicationContext@184f6be2: startup date [Thu Oct 11 11:42:05 KST 2018]; root of context hierarchy
+INFO : org.springframework.context.support.GenericApplicationContext - Refreshing org.springframework.context.support.GenericApplicationContext@184f6be2: startup date [Thu Oct 11 21:17:58 KST 2018]; root of context hierarchy
 INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
 INFO : com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
 </system-out>
