@@ -1,10 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-     pageEncoding="UTF-8"%>
- <!DOCTYPE html>
- <html>
- <head>
-<meta charset="UTF-8" />
-<title>Insert title here</title>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding=UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=UTF-8">
+<title>도서 책 추가 및 정보</title>
+<link rel = "stylesheet" href = "/WEB-INF/views/css/bootstrap.css/">
+<link rel = "stylesheet" href = "/WEB-INF/views/css/bootstrap-theme.css/">
+
+<script src="/WEB-INF/views/js/jquery.js"></script>
+<script src="/WEB-INF/views/js/boorstrap.js"></script>
+
+
 </head>
 <script>
 var AjaxUtil = function(conf){
@@ -22,26 +28,27 @@ var AjaxUtil = function(conf){
 	
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState==4){
-			if(xhr.status=="200"){
+			iff(xhr.status=="200"){
 				success(xhr.responseText);
 			}else{
 				error(xhr.responseText);
 			}
 		}
 	}
+	
 	xhr.open(method,url);
 	if(method!='GET'){
-		xhr.setRequestHeader('Content-type','application/json;charset=utf-8');
+		xhr.RequestHeader('Content-type','application/json;charset=utf-8');
 	}
 	this.send = function(){
 		xhr.send(param);
-	}
-}
+	}	
+}		
 
- window.addEventListener('load',function(){
+window.addEventListener('load',function(){
 	var conf = {
-			url : '/libraryinfo',
-			success : function(res){
+			url : '/Libraryinfo',
+			success:function(res){
 				res = JSON.parse(res);
 				var html = '';
 				for(var li of res){
@@ -57,12 +64,22 @@ var AjaxUtil = function(conf){
 					html += '<td><img src="/resources' + li.liimg + '" style="width:100px"></td>';
 					html += '<td><input type="text" id="libook' + li.lino+'" value="' + li.libook + '"></td>';
 					html += '<td><input type="text" id="listar' + li.lino+'" value="' + li.listar + '"></td>';
-					html += '<td><button onclick="updateLibraryInfo('+li.lino+')">수정</button></td>';
-					html += '<td><button onclick="deleteLibraryInfo('+li.lino+')">삭제</button></td>';
+					html += '<td><button onclick="updateLibraryInfo('+li.lino+')">����</button></td>';
+					html += '<td><button onclick="deleteLibraryInfo('+li.lino+')">����</button></td>';
+					
+					/* html +='<td><select name="listar" + li.lino id="listar"'
+					html +='<option value ="1">1</option>';
+					html +='<option value ="2">2</option>';
+					html +='<option value ="3">3</option>'; 
+					html +='<option value ="4">4</option>'; 
+					html +='<option value ="5" selected>5</option>'; 
+					html +='</select>'; */
+						
+					html += '<td><input type="text" id="listar' + li.lino+'" value="' + li.listar + '"></td>';
 					html += '</tr>';
-				} 
+				}
 				document.querySelector('#liBody').insertAdjacentHTML('beforeend',html);
-			}
+	}
 	}
 	var au = new AjaxUtil(conf);
 	au.send();
@@ -72,22 +89,32 @@ var AjaxUtil = function(conf){
 </script>
 
 <body> 
-<form enctype="multipart/form-data">
+<form enctype="multipart/form-data">	
+		
+<body>
+<img src = "views/img/book.jpg">
+<script src = "js/jquery.js"></script>
+<script src = "js/bootstrap.js"></script>
 liname : <input type="text" name="liname">
-<button type="button">검색</button>
+<button type="button">寃���</button>
 <table border="1" cellpadding="1" cellspacing="1">
+=======
+<button>검색</button>
+<table border='1'>
+>>>>>>> branch 'master' of https://github.com/wkd4914/library.git
 	<thead>
 		<tr>
- 			<th>lino</th>
- 			<th>liprice</th>
- 			<th>liname</th>
- 			<th>ligenre</th>
- 			<th>lidate</th>
- 			<th>lipublisher</th>
- 			<th>liwriter</th>
- 			<th>liimg</th>
- 			<th>libook</th>
- 			<th>listar</th>
+			<th>lino</th>
+			<th>liname</th>
+			<th>liprice</th>
+			<th>ligenre</th>
+			<th>lidate</th>
+			<th>lipublisher</th>
+			<th>liwriter</th>
+			<th>liwhere</th>
+			<th>liimg</th>
+			<th>libook</th>
+			<th>listar</th>
 			<th>수정</th>
 			<th>삭제</th>
 		</tr>
@@ -95,25 +122,33 @@ liname : <input type="text" name="liname">
 	<tbody id="liBody">
 	</tbody>
 </table>
-<button onclick="addlibraryInfo()" type="button">도서 추가</button>
+<button onclick="addlibraryInfo()" type="button">���� 異�媛�</button>
 </form>
+<button onclick="addLibraryInfo()">도서 추가</button>
 <script>
+<<<<<<< HEAD
 function addlibraryInfo(){
+=======
+function addLibraryInfo(){
+>>>>>>> branch 'master' of https://github.com/wkd4914/library.git
 		var html = '<tr>';
 		html += '<td>&nbsp;</td>';
-		html += '<td><input type="text" id="liprice" value=""></td>';
 		html += '<td><input type="text" id="liname" value=""></td>';
+		html += '<td><input type="text" id="liprice" value=""></td>';
 		html += '<td><input type="text" id="ligenre" value=""></td>';
 		html += '<td><input type="text" id="lidate" value=""></td>';
 		html += '<td><input type="text" id="lipublisher" value=""></td>';
 		html += '<td><input type="text" id="liwriter" value=""></td>';
 		html += '<td><input type="file" id="liimg" value=""></td>';
+		html += '<td><input type="text" id="liwhere" value=""></td>';
+		html += '<td><input type="text" id="liimg" value=""></td>';
 		html += '<td><input type="text" id="libook" value=""></td>';
 		html += '<td><input type="text" id="listar" value=""></td>';
 		html += '<td><button onclick="savelibraryInfo()" type="button">저장</button></td>';
-		html += '<td><button onclick="savelibraryInfo1()" type="button">파일저장테스트</button></td>';
+		html += '<td><button onclick="savelibraryInfo1()" type="button">파일 업로드</button></td>';
+		html += '<td><button onclick="saveLibraryInfo()">저장</button></td>';
 		html += '</tr>';
-	document.querySelector('#liBody').insertAdjacentHTML('beforeend',html);
+		doucment.querySelector('#liBody').insertAdjacentHTML('beforeend',html);
 }
 
 function savelibraryInfo1(){
@@ -156,7 +191,7 @@ function savelibraryInfo(){
 			param : params,
 			success : function(res){
 				if(res=='1'){
-				alert('저장오케이');
+				alert('���μ�ㅼ���');
 				location.href="/url/library:list";
 			}
 	}
@@ -191,22 +226,78 @@ function savelibraryInfo(){
 	au.send();
 }
 
-function deleteLibraryInfo(lino){
+function saveLibraryInfo(){
+	var liname = document.querySelector('#liname').value;	
+	var liprice = document.querySelector('#liprice').value;	
+	var ligenre = document.querySelector('#ligenre').value;	
+	var lidate = document.querySelector('#lidate').value;	
+	var lipublisher = document.querySelector('#lipublisher').value;	
+	var liwriter = document.querySelector('#liwriter').value;	
+	var liwhere = document.querySelector('#liwhere').value;	
+	var liimg = document.querySelector('#liimg').value;	
+	var libook = document.querySelector('#libook').value;	
+	var listar = document.querySelector('#listar').value;	
+	var params = {liname:liname, liprice:liprice, ligenre:ligenre, lidate:lidate, lipublisher:lipublisher, 
+			liwriter:liwriter, liwhere:liwhere, liimg:liimg, libook:libook, listar:listar};
+	params = JSON.stringify(params);
 	
 	var conf = {
-			url : '/libraryinfo/' + lino,
-			method : 'DELETE',
+			url :'/libraryInfo/',
+			method : 'POST',
+			param : params,
 			success : function(res){
 				if(res=='1'){
-					alert("삭제 ㅇㅋ");
 					location.href="/url/library:list";
+					alert('도서저장');
+					initList();
 				}
 			}
+	}
+		var au = new AjaxUtil(conf);
+	au.send();
+}	
+
+function updateLibraryInfo(lino){
+	var liname = document.querySelector("#liname"+lino).value;
+	var liprice = document.querySelector("#liprice"+lino).value;
+	var ligenre = document.querySelector("#ligenre"+lino).value;
+	var lidate = document.querySelector("#lidate"+lino).value;
+	var lipublisher = document.querySelector("#lipublisher"+lino).value;
+	var liwriter = document.querySelector("#liwriter"+lino).value;
+	var liwhere = document.querySelector("#liwhere"+lino).value;
+	var liimg = document.querySelector("#liimg"+lino).value;
+	var libook = document.querySelector("#libook"+lino).value;
+	var listar = document.querySelector("#listar"+lino).value;
+	params = {liname:liname, liprice:liprice, ligenre:ligenre, lidate:lidate, lipublisher:lipublisher, 
+			liwriter:liwriter, liwhere:liwhere, liimg:liimg, libook:libook, listar:listar, lino:lino};
+	params = JSON.stringify(params);
+	
+	var conf = {
+			url : '/libraryinfo/' + linum,
+			method : 'PUT',
+			param : params,
+	success : function(res){
+		alert(res);
+	}
 	}
 	var au = new AjaxUtil(conf);
 	au.send();
 }
+function deleteLibraryInfo(lino){
+	var conf = {
+			url : '/libraryinfo' + lino,
+			method : 'DELETE',
+			success : function(res){
+				if(res==1){
+					alert('삭제완료');
+					location.href="/url/libraryinfo:list";
+				}
+			}
+	}
+	var au = new AjaxUtil(conf);
+	au.send;
+}
 
 </script>
 </body>
- </html>
+</html>
