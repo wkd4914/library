@@ -130,6 +130,9 @@ window.addEventListener('load',function(){
 </nav>
 
 <img src = "/resources/img/book.jpg" style="width : 5%" >
+<input type = "text" name="liname">
+<button onclick="search()">원하는 책의 이름 검색</button>
+<!-- <img src = "/resources/img/dot.jpg" style="width : 4%" > -->
 <!-- <script src = "js/jquery.js"></script>
 <script src = "js/bootstrap.js"></script>  -->
 <!--  liname : <input type="text" name="liname">
@@ -155,7 +158,7 @@ window.addEventListener('load',function(){
 	<tbody id="liBody">
 	</tbody>
 </table>
-<button onclick="addLibraryInfo()">도서 추가</button>
+<button onclick="addLibraryInfo()">도서 추가 및 입력 란</button>
 <script>
 function addLibraryInfo(){
 		var html = '<tr>';
@@ -283,6 +286,16 @@ function deleteLibraryInfo(lino){
 	var au = new AjaxUtil(conf);
 	au.send();
 }
+
+function search(){
+	var liname = document.querySelector('#liname').value;
+	
+	var url = "/";
+	var method = "post"
+	
+}
+
+
 </script>
 </body>
 </html>

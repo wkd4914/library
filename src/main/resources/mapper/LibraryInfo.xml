@@ -9,17 +9,17 @@
   <select id="selectLibraryInfoList" resultType="li">
     select * from library_info
     <where>
-  		<if test="lino!=null">and lino = #{lino}</if>
-  		<if test="liprice!=null">and liprice = #{liprice}</if>
+  		<!-- <if test="lino!=null">and lino = #{lino}</if>
+  		<if test="liprice!=null">and liprice = #{liprice}</if> -->
   		<if test="liname!=null">and liname like '%'||#{liname}||'%'</if>
-  		<if test="ligenre!=null">and ligenre = #{ligenre}</if>
+  		<!-- <if test="ligenre!=null">and ligenre = #{ligenre}</if>
   		<if test="lidate!=null">and lidate = #{lidate}</if>
   		<if test="lipublisher!=null">and lipublisher = #{lipublisher}</if>
   		<if test="liwriter!=null">and liwriter = #{liwriter}</if>
   		<if test="liwhere!=null">and liwhere = #{liwhere}</if>
   		<if test="liimg!=null">and liimg = #{liimg}</if>
   		<if test="libook!=null">and libook = #{libook}</if>
-  		<if test="listar!=null">and listar = #{listar}</if>
+  		<if test="listar!=null">and listar = #{listar}</if> -->
     </where>
     order by lino
   </select>

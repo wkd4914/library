@@ -4,13 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
+import org.springframework.stereotype.Service;
 
 import com.ict.book.dao.LibraryInfoDAO;
 import com.ict.book.service.LibraryInfoService;
 import com.ict.book.vo.LibraryInfo;
 
-@Repository
+@Service
 public class LibraryInfoServiceImpl implements LibraryInfoService {
 
 	@Autowired
