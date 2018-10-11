@@ -26,7 +26,7 @@
 	liimg : <input type="text" name="liimg"><br>
 	libook : <input type="text" name="libook"><br>
 	listar : <input type="text" name="listar"><br>
-	<button></button>
+	<button>등록</button>
 </form>
 </body>
 </html> 

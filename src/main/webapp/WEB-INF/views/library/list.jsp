@@ -1,14 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset=UTF-8">
+<meta charset="UTF-8">
 <title>도서 책 추가 및 정보</title>
 <link rel = "stylesheet" href = "/WEB-INF/views/css/bootstrap.css/">
 <link rel = "stylesheet" href = "/WEB-INF/views/css/bootstrap-theme.css/">
 
 <script src="/WEB-INF/views/js/jquery.js"></script>
-<script src="/WEB-INF/views/js/boorstrap.js"></script>
+<script src="/WEB-INF/views/js/boorstrap.js"></script> 
 
 
 </head>
@@ -59,6 +59,7 @@ window.addEventListener('load',function(){
 					html += '<td><input type="text" id="ligenre' + li.lino+'" value="' + li.ligenre + '"></td>';
 					html += '<td><input type="text" id="lidate'+ li.lino+'" value="' + li.lidate + '"></td>';
 					html += '<td><input type="text" id="lipublisher' + li.lino+'" value="' + li.lipublisher + '"></td>';
+					html += '<td><input type="text" id="liwhere' + li.lino+'" value="' + li.liwhere + '"></td>';
 					html += '<td><input type="text" id="liwriter' + li.lino+'" value="' + li.liwriter + '"></td>';
 				//	html += '<td><input type="file" id="liimg' + li.lino+'" value="' + li.liimg + '"></td>';
 					html += '<td><img src="/resources' + li.liimg + '" style="width:100px"></td>';
@@ -88,18 +89,16 @@ window.addEventListener('load',function(){
 
 <body> 
 <form enctype="multipart/form-data">
-<body>
 <img src = "views/img/book.jpg">
-<script src = "js/jquery.js"></script>
-<script src = "js/bootstrap.js"></script>
+
 liname : <input type="text" name="liname">
-<button type="button">검색</button>
-<table border="1" cellpadding="1" cellspacing="1">
+<!-- <button type="button">검색</button> -->
+<!-- <table border="1" cellpadding="1" cellspacing="1"> -->
 <button>검색</button>
 <table border='1'>
 	<thead>
 		<tr>
-			<th>lino</th>
+			<th>lino!!</th>
 			<th>liname</th>
 			<th>liprice</th>
 			<th>ligenre</th>
@@ -167,10 +166,11 @@ function savelibraryInfo(){
  	var lidate = document.querySelector("#lidate").value;
  	var lipublisher = document.querySelector("#lipublisher").value;
  	var liwriter = document.querySelector("#liwriter").value;
+ 	var liwhere = document.querySelector("#liwhere").value;
  	var liimg = document.querySelector("#liimg").value;
  	var libook = document.querySelector("#libook").value;
  	var listar = document.querySelector("#listar").value;
- 	var params = {liprice:liprice, liname:liname, ligenre:ligenre, lidate:lidate, lipublisher:lipublisher, liwriter:liwriter, liimg:liimg, libook:libook, listar:listar};
+ 	var params = {liprice:liprice, liname:liname, ligenre:ligenre, lidate:lidate, lipublisher:lipublisher, liwhere:liwhere liwriter:liwriter, liimg:liimg, libook:libook, listar:listar};
  	params = JSON.stringify(params);
  	
  	var conf = {
@@ -188,7 +188,7 @@ function savelibraryInfo(){
 	au.send();
 }
 
- function updateLibraryInfo(lino){
+/*  function updateLibraryInfo(lino){
 	    var liprice = document.querySelector("#liprice"+lino).value;
 	 	var liname = document.querySelector("#liname"+lino).value;
 	 	var ligenre = document.querySelector("#ligenre"+lino).value;
@@ -212,7 +212,7 @@ function savelibraryInfo(){
  	
 	var au = new AjaxUtil(conf);
 	au.send();
-}
+} */
 
 function saveLibraryInfo(){
 	var liname = document.querySelector('#liname').value;	

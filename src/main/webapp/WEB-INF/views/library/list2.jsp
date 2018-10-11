@@ -3,13 +3,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>도서 책 추가 및 정보</title>
-<link rel = "stylesheet" href = "resources/css/bootstrap.css/">
-<link rel = "stylesheet" href = "resources/css/bootstrap-theme.css/">
+<title>도서 책 추가 및 정보!!</title>
+ <link rel = "stylesheet" href = "/resources/css/bootstrap.css/">
+<link rel = "stylesheet" href = "/resources/css/bootstrap-theme.css/">
 
 <script src="/WEB-INF/views/js/jquery.js"></script>
 <script src="/WEB-INF/views/js/boorstrap.js"></script>
-
+ 
 
 </head>
 <script>
@@ -28,7 +28,7 @@ var AjaxUtil = function(conf){
 	
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState==4){
-			iff(xhr.status=="200"){
+			if(xhr.status=="200"){
 				success(xhr.responseText);
 			}else{
 				error(xhr.responseText);
@@ -37,7 +37,7 @@ var AjaxUtil = function(conf){
 	}
 	xhr.open(method,url);
 	if(method!='GET'){
-		xhr.RequestHeader('Content-type','application/json;charset=utf-8');
+		xhr.setRequestHeader('Content-type','application/json;charset=utf-8');
 	}
 	this.send = function(){
 		xhr.send(param);
@@ -45,7 +45,7 @@ var AjaxUtil = function(conf){
 }		
 window.addEventListener('load',function(){
 	var conf = {
-			url : '/Libraryinfo',
+			url : '/libraryinfo',
 			success:function(res){
 				res = JSON.parse(res);
 				var html = '';
@@ -71,8 +71,8 @@ window.addEventListener('load',function(){
 					html +='</select>'; */
 						
 					html += '<td><input type="text" id="listar' + li.lino+'" value="' + li.listar + '"></td>';
-					html += '<td><button onclick="updateLibraryInfo('+li.linum+')">수정</button></td>';
-					html += '<td><button onclick="deleteLibraryInfo('+li.linum+')">삭제</button></td>';
+					html += '<td><button onclick="updateLibraryInfo('+li.lino+')">수정</button></td>';
+					html += '<td><button onclick="deleteLibraryInfo('+li.lino+')">삭제</button></td>';
 					html += '</tr>';
 				}
 				document.querySelector('#liBody').insertAdjacentHTML('beforeend',html);
@@ -82,14 +82,59 @@ window.addEventListener('load',function(){
 	au.send();
 });		
 </script>		
+
+<style>
+	/*  body{
+		background-color : lightblue;
+	} */
+
+
+	 tbody>tr>td>input{
+		text-align:center;	
+		cursor:pointer;
+		color : blue;
+	} 
+	 thead>tr>th{
+		text-align:center;	
+		cursor:pointer;
+	}
+	 
+	
+
+	
+ body {
+    background-image: url("/resources/img/aabook.png");
+    background-size: 400px 180px;
+    /*  background-repeat: no-repeat; */
+    
+} 
+
+</style>
+
 		
 <body>
-<img src = "views/img/book.jpg">
-<script src = "js/jquery.js"></script>
-<script src = "js/bootstrap.js"></script>
-liname : <input type="text" name="liname">
-<button>검색</button>
-<table class="table">
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">BookSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="/url/library:insert">추가하고자 하는 책 데이터 등</a></li>
+      <li><a href="https://www.google.co.kr/search?q=%EC%84%9C%EC%9A%B8+%EC%95%8C%EB%9D%BC%EB%94%98+%EC%84%9C%EC%A0%90&npsic=0&rflfq=1&rlha=0&rllag=37526138,126950734,5833&tbm=lcl&ved=2ahUKEwiVjr6K3v3dAhVFMt4KHX5uCWsQtgN6BAgFEAQ&tbs=lrf:!2m1!1e3!3sIAE,lf:1,lf_ui:4&rldoc=1#rlfi=hd:;si:;mv:!3m8!1m3!1d77762.01320381546!2d126.94592338652342!3d37.550338837967836!3m2!1i772!2i590!4f13.1">서울 알라딘 위치</a></li>
+      <li><a href="https://www.google.co.kr/maps/@37.5662143,126.9777403,2a,75y,245.39h,66.53t/data=!3m6!1e1!3m4!1ssR3Rxvi9RG8AAAAGOpA9mA!2e0!7i13312!8i6656">서울 시청 도서관</a></li>
+    </ul>
+  </div>
+</nav>
+
+<img src = "/resources/img/book.jpg" style="width : 5%" >
+<!-- <script src = "js/jquery.js"></script>
+<script src = "js/bootstrap.js"></script>  -->
+<!--  liname : <input type="text" name="liname">
+ <button onclick="button">검색</button> -->
+<table border="1">
 	<thead>
 		<tr>
 			<th>lino</th>
@@ -114,23 +159,23 @@ liname : <input type="text" name="liname">
 <script>
 function addLibraryInfo(){
 		var html = '<tr>';
-		html += '<td>&nbsp;</td>';
-		html += '<td><input type="text" id="liname" value=""></td>';	//
-		html += '<td><input type="text" id="liprice" value=""></td>';	//
+		html += '<td><input type="text" id="lino" value=""></td>';
+		html += '<td><input type="text" id="liname" value=""></td>';	
+		html += '<td><input type="text" id="liprice" value=""></td>';	
 		html += '<td><input type="text" id="ligenre" value=""></td>';
 		html += '<td><input type="text" id="lidate" value=""></td>';
 		html += '<td><input type="text" id="lipublisher" value=""></td>';
 		html += '<td><input type="text" id="liwriter" value=""></td>';
 		html += '<td><input type="text" id="liwhere" value=""></td>';
-		html += '<td><input type="text" id="liimg" value=""></td>';		//
-		html += '<td><input type="text" id="libook" value=""></td>';	//
+		html += '<td><input type="text" id="liimg" value=""></td>';		
+		html += '<td><input type="text" id="libook" value=""></td>';	
 		html += '<td><input type="text" id="listar" value=""></td>';
 		html += '<td><button onclick="saveLibraryInfo()">저장</button></td>';
 		html += '</tr>';
-		doucment.querySelector('#liBody').insertAdjacentHTML('beforeend',html);
+		document.querySelector('#liBody').insertAdjacentHTML('beforeend',html);
 }
 
-/* function checkValue(){     유효성 검사 확신은 없지만 우선 소스로
+/* function checkValue(){     
 	var nameObj = document.querySelector('#liname');
 	var priceObj = document.querySelector('#liprice');
 	var imgObj = document.querySelector('#liimg');
@@ -164,7 +209,7 @@ function addLibraryInfo(){
 		return false;
 	}
 	
-} */
+}  */
 
 function saveLibraryInfo(){
 	var liname = document.querySelector('#liname').value;	
@@ -182,14 +227,15 @@ function saveLibraryInfo(){
 	params = JSON.stringify(params);
 	
 	var conf = {
-			url :'/library/',
+			url :'/libraryinfo/',
 			method : 'POST',
 			param : params,
 	
 			success : function(res){
 				if(res=='1'){
 					alert('도서저장');
-					initList();
+					/* initList(); */
+					location.href="/url/library:list2";	
 				}
 			}
 	}
@@ -213,7 +259,7 @@ function updateLibraryInfo(lino){
 	params = JSON.stringify(params);
 	
 	var conf = {
-			url : '/library/' + linum,
+			url : '/libraryinfo/' + lino,
 			method : 'PUT',
 			param : params,
 	success : function(res){
@@ -225,17 +271,17 @@ function updateLibraryInfo(lino){
 }
 function deleteLibraryInfo(lino){
 	var conf = {
-			url : '/library/' + lino,
+			url : '/libraryinfo/' + lino,
 			method : 'DELETE',
 			success : function(res){
 				if(res=='1'){
 					alert('삭제');
-					location.href="/url/libraryinfo:list";
+					location.href="/url/library:list2";
 				}
 			}
 	}
 	var au = new AjaxUtil(conf);
-	au.send;
+	au.send();
 }
 </script>
 </body>
