@@ -11,7 +11,9 @@
     <where>
   		<!-- <if test="lino!=null">and lino = #{lino}</if>
   		<if test="liprice!=null">and liprice = #{liprice}</if> -->
+  		
   		<if test="liname!=null">and liname like '%'||#{liname}||'%'</if>
+  		
   		<!-- <if test="ligenre!=null">and ligenre = #{ligenre}</if>
   		<if test="lidate!=null">and lidate = #{lidate}</if>
   		<if test="lipublisher!=null">and lipublisher = #{lipublisher}</if>
@@ -28,6 +30,10 @@
   	where lino = #{lino}
   </select> 
   <insert id="insertLibraryInfo" parameterType="li">
+  	insert into library_info(lino, liprice, liname, ligenre, lidate, lipublisher, liwriter, liwhere, liimg, libook, listar)
+   	values(seq_lino.nextval, #{liprice}, #{liname},#{ligenre}, #{lidate}, #{lipublisher},#{liwriter}, #{liwhere}, #{liimg}, #{libook},#{listar})
+   </insert>
+  <insert id="insertLibraryInfoWithMap" parameterType="map">
   	insert into library_info(lino, liprice, liname, ligenre, lidate, lipublisher, liwriter, liwhere, liimg, libook, listar)
    	values(seq_lino.nextval, #{liprice}, #{liname},#{ligenre}, #{lidate}, #{lipublisher},#{liwriter}, #{liwhere}, #{liimg}, #{libook},#{listar})
    </insert>

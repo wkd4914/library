@@ -1,6 +1,7 @@
 package com.ict.book.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -28,6 +29,10 @@ public class LibraryInfoServiceImpl implements LibraryInfoService {
 		return ldao.insertLibraryInfo(li);
 	}
 
+	public Integer insertLibraryInfo(Map<String, String> pMap) {
+		// TODO Auto-generated method stub
+		return ldao.insertLibraryInfo(pMap);
+	};
 	@Override
 		// TODO Auto-generated method stub
 	public int deleteLibraryInfo(int lino) {

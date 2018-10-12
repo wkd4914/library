@@ -1,6 +1,7 @@
 package com.ict.book.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
@@ -14,5 +15,6 @@ public interface LibraryInfoDAO {
 	public int deleteLibraryInfo(int lino);
 	public LibraryInfo getLibraryInfoList(Integer lino);
 	public int updateLibraryInfo(LibraryInfo li);
+	public Integer insertLibraryInfo(Map<String, String> pMap);
 
 }
