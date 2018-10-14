@@ -11,6 +11,8 @@
 <script src="/resources/js/bootstrap.js"></script>
 <script src="/resources/js/AjaxUtil.js"></script>
  
+
+ 
 </head>
 <script>
 
@@ -49,11 +51,16 @@ window.addEventListener('load',function(){
 
 <body>
 
+<div class="helloworld_box">
+	<span class="helloworld1" onclick="cloneHelloWorld(this)">Library Project</span>
+</div>
+
+
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">BookSiteName</a>
+      <a class="navbar-brand" href="http://localhost/url/library:list3">BookSiteName</a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="http://localhost/url/library:list3">Home</a></li>
@@ -99,6 +106,9 @@ window.addEventListener('load',function(){
 
 <!-- <img src = "/resources/img/click.png" style="width : 10%" button onclick="addLibraryInfo()"></button> -->
 <button onclick ="addLibraryInfo()">추가하고자 하는 책이 있을경우 Click 해주세요</button>
+
+
+
 <script>
 var idx = 1;
 function search(){
@@ -135,6 +145,33 @@ function search(){
 	}
 	
 	
+
+function cloneHelloWorld(o){
+
+	var pos  = $(o).offset(); // 클릭한 이미지의 위치알아내기
+	// 이동할 위치값을 랜덤으로 생성 -300 부터 300 사이
+	var rnd1  = Math.round( Math.random() * 600 - 300 );
+	var rnd2 = Math.round( Math.random() * 600 - 300 );
+
+	// 클릭한 이미지 기준으로 이동할 위치계산
+	var move_top = pos.top - rnd1;
+	var move_left = pos.left - rnd2;
+
+	// 보기편하게 여러줄 코딩
+	$(o)
+	.clone() // 클릭한 이미지 복제
+	.appendTo( '.helloworld_box' ) // 복제한것 추가
+	.css({ top : pos.top, left : pos.left, position:'absolute' }) // 위치설정과 position 설정 변경
+	.animate( { top : move_top, left : move_left }, 1000, 'easeOutElastic', function(){ // 위치이동 애니매이션
+		var img = this; // setTimeout 에서 사용하기 위해 지역변수로 만들기
+
+		// 5초후 제거
+		setTimeout(function(){
+			$(img).remove();
+		}, 5000);
+	});
+}
+
 
 
 

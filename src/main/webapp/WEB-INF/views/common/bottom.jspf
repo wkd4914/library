@@ -204,8 +204,19 @@ tfoot th:after {
     left: auto;
 }
 
-
-</style>
+/* 테스트 */
+.helloworld_box {
+	text-align:center;
+}
+.helloworld_box .helloworld1 {
+	color:#8000FF;
+	cursor:pointer;
+	font-size:50pt !important;
+	font-weight:bold;
+	position:relative;
+	text-shadow:0 0 5px #FF0080;
+	z-index:100;
+}
 
 
 </body>
