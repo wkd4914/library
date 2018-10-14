@@ -7,6 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+<style>
+body {
+    background-image: url("/resources/img/treea.jpg");
+    background-size: 1800px 1200px;
+    /*  background-repeat: no-repeat; */  
+	} 
+</style>
 <script>
 <c:if test="${!empty iCnt}">
 	<c:if test="${iCnt eq 1}">

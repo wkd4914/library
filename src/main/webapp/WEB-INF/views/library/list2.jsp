@@ -59,17 +59,10 @@ window.addEventListener('load',function(){
 					html += '<td><input type="text" id="lipublisher' + li.lino+'" value="' + li.lipublisher + '"></td>';
 					html += '<td><input type="text" id="liwriter' + li.lino+'" value="' + li.liwriter + '"></td>';
 					html += '<td><input type="text" id="liwhere' + li.lino+'" value="' + li.liwhere + '"></td>';
-					html += '<td><input type="text" id="liimg' + li.lino+'" value="' + li.liimg + '"></td>';
+					html += '<td><img src="/resources' + li.liimg + '" style="width:100px"></td>';
+					//html += '<td><input type="text" id="liimg' + li.lino+'" value="' + li.liimg + '"></td>';
 					html += '<td><input type="text" id="libook' + li.lino+'" value="' + li.libook + '"></td>';
-					
-					/* html +='<td><select name="listar" + li.lino id="listar"'
-					html +='<option value ="1">1</option>';
-					html +='<option value ="2">2</option>';
-					html +='<option value ="3">3</option>'; 
-					html +='<option value ="4">4</option>'; 
-					html +='<option value ="5" selected>5</option>'; 
-					html +='</select>'; */
-						
+				
 					html += '<td><input type="text" id="listar' + li.lino+'" value="' + li.listar + '"></td>';
 					html += '<td><button onclick="updateLibraryInfo('+li.lino+')">수정</button></td>';
 					html += '<td><button onclick="deleteLibraryInfo('+li.lino+')">삭제</button></td>';
@@ -84,16 +77,12 @@ window.addEventListener('load',function(){
 </script>		
 
 <style>
-	/*  body{
-		background-color : lightblue;
-	} */
-
-
 	 tbody>tr>td>input{
 		text-align:center;	
 		cursor:pointer;
 		color : blue;
 	} 
+	
 	 thead>tr>th{
 		text-align:center;	
 		cursor:pointer;
@@ -104,27 +93,29 @@ window.addEventListener('load',function(){
 	 }
 	 
 	h1{
-		text-shadow: 5px 5px 5px #00CCFF;
-		
+		text-shadow: 5px 5px 5px #00CCFF;	
 	}
-
 	
- body {
+ 	body {
     background-image: url("/resources/img/aabook.png");
     background-size: 400px 180px;
     /*  background-repeat: no-repeat; */  
-} 
+	} 
 
-body{
+	body{
 	  	font-familly:"Times New Roman", Times, serif;
 	
-}
-
+	}
 	
+	td>button{
+		background-color: #4CAF50;
+	}
 	
-
+	p{
+	 	background-color: #e7e7e7;
+	 	color:blue;
+	}
 </style>
-
 		
 <body>
 
@@ -145,16 +136,10 @@ body{
   </div>
 </nav>
 
-<!-- <input type = "text" name="liname"> -->
-<!-- <button onclick="search()">원하는 책의 이름 검색</button> -->
-
-<!-- <script src = "js/jquery.js"></script>
-<script src = "js/bootstrap.js"></script>  -->
 <p>
- liname : <img src = "/resources/img/dot.jpg" style="width : 4%" button onclick=""></button>
-<img src = "/resources/img/click.png" style="width : 10%" button onclick="addLibraryInfo()"></button>
- 
- </p>
+찾으실 도서를 입력해주세요 : <input type="text" name="liname">
+<img src = "/resources/img/dot.jpg" style="width : 4%" button onclick="search()"></button> 
+</p>
 <table border="1">
 	<thead>
 		<tr>
@@ -176,9 +161,49 @@ body{
 	<tbody id="liBody">
 	</tbody>
 </table>
-................................<img src = "/resources/img/click.png" style="width : 10%" button onclick="addLibraryInfo()"></button>
+
+
+<img src = "/resources/img/click.png" style="width : 10%" button onclick="addLibraryInfo()"></button>
 
 <script>
+function search(){
+	var liname = document.querySelector('input[name=liname]').value;	
+
+		var conf = {
+				url : '/libraryinfo2/'+liname,
+				method : 'GET',
+				success : function(res){
+					res = JSON.parse(res);
+					var html = '';
+					for(var li of res){
+						html += '<tr>';
+						html += '<td>' + li.lino + '</td>';
+						html += '<td><input type="text" id="liname' + li.lino+'" value="' + li.liname + '"></td>';
+						html += '<td><input type="text" id="liprice' + li.lino+'" value="' + li.liprice + '"></td>';
+						html += '<td><input type="text" id="ligenre' + li.lino+'" value="' + li.ligenre + '"></td>';
+						html += '<td><input type="text" id="lidate' + li.lino+'" value="' + li.lidate + '"></td>';
+						html += '<td><input type="text" id="lipublisher' + li.lino+'" value="' + li.lipublisher + '"></td>';
+						html += '<td><input type="text" id="liwriter' + li.lino+'" value="' + li.liwriter + '"></td>';
+						html += '<td><input type="text" id="liwhere' + li.lino+'" value="' + li.liwhere + '"></td>';
+						html += '<td><input type="text" id="liimg' + li.lino+'" value="' + li.liimg + '"></td>';
+						html += '<td><input type="text" id="libook' + li.lino+'" value="' + li.libook + '"></td>';
+						html += '<td><input type="text" id="listar' + li.lino+'" value="' + li.listar + '"></td>';
+						html += '<td><button onclick="updateLibraryInfo('+li.lino+')">수정</button></td>';
+						html += '<td><button onclick="deleteLibraryInfo('+li.lino+')">삭제</button></td>';
+						html += '</tr>';
+					}
+					document.querySelector('#liBody').innerHTML = html;;
+				}
+		}
+		var au = new AjaxUtil(conf);
+		au.send();
+	}
+	
+	
+
+
+
+
 function addLibraryInfo(){
 		var html = '<tr>';
 		html += '<td><input type="text" id="lino" value=""></td>';
@@ -189,10 +214,13 @@ function addLibraryInfo(){
 		html += '<td><input type="text" id="lipublisher" value=""></td>';
 		html += '<td><input type="text" id="liwriter" value=""></td>';
 		html += '<td><input type="text" id="liwhere" value=""></td>';
-		html += '<td><input type="text" id="liimg" value=""></td>';		
+		html += '<td><input type="file" id="liimg" value=""></td>';		
 		html += '<td><input type="text" id="libook" value=""></td>';	
 		html += '<td><input type="text" id="listar" value=""></td>';
 		html += '<td><button onclick="saveLibraryInfo()">저장</button></td>';
+		
+		html += '<td><button onclick="savelibraryInfo1()" type="button">파일 업로드</button></td>';
+
 		html += '</tr>';
 		document.querySelector('#liBody').insertAdjacentHTML('beforeend',html);
 }
@@ -263,7 +291,33 @@ function saveLibraryInfo(){
 	}
 		var au = new AjaxUtil(conf);
 	au.send();
-}	
+}
+
+
+function savelibraryInfo1(){
+	var form = document.querySelector("form");
+	var formData = new FormData(form);
+	var url = "/libraryinfoTest";
+	var method = 'POST';
+
+	formData.forEach((e) =>{
+		alert(e.value)
+	})
+	
+	var xhr = new XMLHttpRequest();
+	
+	xhr.onreadystatechange = function(){
+		if(xhr.readystate == xhr.DONE){
+			if(xhr.status == 200){
+				alert(xhr.response);		
+			}
+		}
+	}
+	
+	xhr.open(method,url);
+	xhr.send(formData);
+	
+}
 
 function updateLibraryInfo(lino){
 	var liname = document.querySelector("#liname"+lino).value;
@@ -292,6 +346,7 @@ function updateLibraryInfo(lino){
 	au.send();
 }
 function deleteLibraryInfo(lino){
+	
 	var conf = {
 			url : '/libraryinfo/' + lino,
 			method : 'DELETE',

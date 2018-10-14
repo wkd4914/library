@@ -1,6 +1,7 @@
 package com.ict.book.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
@@ -13,4 +14,5 @@ public interface LibraryInfoService {
 	public int deleteLibraryInfo(int lino);
 	public LibraryInfo getLibraryInfoList(Integer lino);
 	public int updateLibraryInfo(LibraryInfo li);
+	public Integer insertLibraryInfo(Map<String, String> pMap);
 }

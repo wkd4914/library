@@ -141,7 +141,7 @@ function addLibraryInfo(){
 }
 
 function savelibraryInfo1(){
-	var form = document.querySelector('#form');
+	var form = document.querySelector('form');
 	var formData = new FormData(form);
 	var url = '/libraryinfoTest';
 	var method = 'POST';

@@ -10,6 +10,8 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,12 +21,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ict.book.HomeController;
 import com.ict.book.service.LibraryInfoService;
 import com.ict.book.vo.LibraryInfo;
  
 @Controller
 public class LibraryInfoController {
- 	
+	private static final Logger log = LoggerFactory.getLogger(LibraryInfoController.class);
 	
 	@Autowired
 	private LibraryInfoService lis;
@@ -34,9 +37,11 @@ public class LibraryInfoController {
  	public @ResponseBody List<LibraryInfo> getLevelInfoList(@ModelAttribute LibraryInfo li){	//@ form 
  		return lis.getLibraryInfoList(li);
 	}
-	@RequestMapping(value="/libraryinfo2",method=RequestMethod.GET)  
- 	public String getLevelInfoList2(@ModelAttribute LibraryInfo li2){	//@ form 
- 		return "library/list";
+	@RequestMapping(value="/libraryinfo2/{liname}",method=RequestMethod.GET)  
+ 	public @ResponseBody List<LibraryInfo> getLevelInfoList2(@PathVariable String liname){	//@ form 
+		LibraryInfo li = new LibraryInfo();
+		li.setLiname(liname);
+ 		return lis.getLibraryInfoList(li);
 	}
  	
  	@RequestMapping(value="/libraryinfo/{lino}",method=RequestMethod.GET)
@@ -66,12 +71,14 @@ public class LibraryInfoController {
  		sfu.setSizeMax(1024*1024*200);
 
 
+		Map<String,String> pMap = new HashMap<String,String>();
  		List<FileItem> fList;
 		try {
 			fList = sfu.parseRequest(request);
+			log.info("isMulti=>{}",sfu.isMultipartContent(request));
 			System.out.println(fList);
-			String savePath = "C:/jsp_study/workspace/library/src/main/webapp/resources/upload";
-			Map<String,String> pMap = new HashMap<String,String>();
+			System.out.println("뭐여");
+			String savePath = "C:/jsp_study/workspace/git/library/src/main/webapp/resources/upload";
 			
 			for(int i=0;i<fList.size();i++){
 				FileItem fi = fList.get(i);
@@ -83,10 +90,10 @@ public class LibraryInfoController {
 					String name = fi.getFieldName();
 					String value = fi.getName();
 					if(value.equals("")) continue;
-					savePath = savePath + File.separator + value;
+					savePath += File.separator + value;
 					File save = new File(savePath);
 					fi.write(save);
-					pMap.put(name, value);
+					pMap.put(name, "/upload" + File.separator + value);
 				}
 			}
 			
@@ -97,7 +104,7 @@ public class LibraryInfoController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
- 		return 1;
+		return lis.insertLibraryInfo(pMap);
  	}
  	
  	

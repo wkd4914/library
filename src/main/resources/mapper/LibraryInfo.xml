@@ -33,6 +33,10 @@
   	insert into library_info(lino, liprice, liname, ligenre, lidate, lipublisher, liwriter, liwhere, liimg, libook, listar)
    	values(seq_lino.nextval, #{liprice}, #{liname},#{ligenre}, #{lidate}, #{lipublisher},#{liwriter}, #{liwhere}, #{liimg}, #{libook},#{listar})
    </insert>
+  <insert id="insertLibraryInfoWithMap" parameterType="map">
+  	insert into library_info(lino, liprice, liname, ligenre, lidate, lipublisher, liwriter, liwhere, liimg, libook, listar)
+   	values(seq_lino.nextval, #{liprice}, #{liname},#{ligenre}, #{lidate}, #{lipublisher},#{liwriter}, #{liwhere}, #{liimg}, #{libook},#{listar})
+   </insert>
    <update id="updateLibraryInfo" parameterType="li">
    	update library_info
    	<set>
