@@ -1,4 +1,4 @@
-< <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
@@ -15,7 +15,7 @@
 <style type="text/css">
 
 .helloworld {
-	background-image:url('http://superkts.com/img/jjal/raccoon01.jpg');
+	background-image:url("http://superkts.com/img/jjal/raccoon01.jpg");
 	background-position:center;
 	background-repeat:no-repeat;
 	display:inline-block;

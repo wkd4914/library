@@ -46,9 +46,9 @@ public class LibraryInfoServiceImpl implements LibraryInfoService {
 	}
 
 	@Override
-	public int updateLibraryInfo(LibraryInfo li) {
+	public int updateLibraryInfo(Map<String, String> pMap) {
 		// TODO Auto-generated method stub
-		return ldao.updateLibraryInfo(li);
+		return ldao.updateLibraryInfo(pMap);
 	}
 
 }

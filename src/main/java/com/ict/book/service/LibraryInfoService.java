@@ -13,6 +13,6 @@ public interface LibraryInfoService {
 	public int insertLibraryInfo(LibraryInfo li);
 	public int deleteLibraryInfo(int lino);
 	public LibraryInfo getLibraryInfoList(Integer lino);
-	public int updateLibraryInfo(LibraryInfo li);
+	public int updateLibraryInfo(Map<String, String> pMap);
 	public Integer insertLibraryInfo(Map<String, String> pMap);
 }

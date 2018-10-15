@@ -204,7 +204,7 @@ tfoot th:after {
     left: auto;
 }
 
-/* 테스트 */
+/* 테스트 book store*/
 .helloworld_box {
 	text-align:center;
 }
@@ -217,6 +217,100 @@ tfoot th:after {
 	text-shadow:0 0 5px #FF0080;
 	z-index:100;
 }
+
+ /* 네비 게이션 */
+
+body { margin: 0; }
+.zeta-menu-bar {
+  background: hotpink;
+  display: inline-block;
+  width: 100%;
+}
+.zeta-menu { margin: 0; padding: 0; }
+.zeta-menu li {
+  float: left;
+  list-style:none;
+  position: relative;
+}
+.zeta-menu li:hover { background: white; }
+.zeta-menu li:hover>a { color: hotpink; }
+.zeta-menu a {
+  color: white;
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+.zeta-menu ul {
+  background: #eee;
+  border: 1px solid silver;
+  display: none;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 180px;
+}
+.zeta-menu ul li { float: none; }
+.zeta-menu ul li:hover { background: #ddd; }
+.zeta-menu ul li:hover a { color: black; }
+.zeta-menu ul a { color: black; }
+.zeta-menu ul ul { left: 100%; top: 0; }
+.zeta-menu ul ul li {float:left; margin-right:10px;}
+
+
+ /* 테스트 3개의 말풍선 */
+
+#menu {
+  width: 420px;
+  margin: 0 auto;
+}
+#menu div {
+  position: relative;
+  width: 28%;
+  float: left;
+  margin: 1%;
+  text-align: center;
+  
+}
+#menu div a {
+    display: block;
+    padding: 1%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.arrow_box {
+  display: none;
+  position: absolute;
+  padding: 16px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;  
+  border-radius: 8px;
+  background: #333;
+  color: #fff;
+}
+
+.arrow_box:after {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -10px;
+  border: black;/* solid transparent */
+  border-color: rgba(51, 51, 51, 0);
+  border-bottom-color: #8977ad;
+  border-width: 10px;
+  pointer-events: none;
+  content: " ";
+}
+
+span:hover + p.arrow_box {
+  display: block;
+}
+
+
+
 
 
 </body>
