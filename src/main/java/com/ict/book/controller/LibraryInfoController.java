@@ -108,11 +108,57 @@ public class LibraryInfoController {
  	}
  	
  	
- 	@RequestMapping(value="/libraryinfo/{lino}",method=RequestMethod.PUT)
+ 	@RequestMapping(value="/libraryinfo",method=RequestMethod.PUT)
 	@ResponseBody 
-	public Integer updateLevelInfoList(@RequestBody LibraryInfo li, @PathVariable Integer lino) {
-		li.setLino(lino);
-		return lis.updateLibraryInfo(li);
+	public Integer updateLevelInfoList(HttpServletRequest request) {
+ 		String tmpPath = System.getProperty("java.io.tmpdir");
+ 		File tmpDir = new File(tmpPath);
+ 		DiskFileItemFactory dFactory = new DiskFileItemFactory();
+
+ 		dFactory.setRepository(tmpDir);
+ 		dFactory.setSizeThreshold(1024*1024*10);
+
+ 		ServletFileUpload sfu = new ServletFileUpload();
+ 		sfu.setFileItemFactory(dFactory);
+ 		sfu.setFileSizeMax(1024*1024*100);
+
+ 		sfu.setSizeMax(1024*1024*200);
+
+
+		Map<String,String> pMap = new HashMap<String,String>();
+ 		List<FileItem> fList;
+		try {
+			fList = sfu.parseRequest(request);
+			log.info("isMulti=>{}",sfu.isMultipartContent(request));
+			System.out.println(fList);
+			System.out.println("뭐여");
+			String savePath = "C:/jsp_study/workspace/git/library/src/main/webapp/resources/upload";
+			
+			for(int i=0;i<fList.size();i++){
+				FileItem fi = fList.get(i);
+				if(fi.isFormField()){
+					String name = fi.getFieldName();
+					String value = fi.getString("utf-8");
+					pMap.put(name, value);
+				}else{
+					String name = fi.getFieldName();
+					String value = fi.getName();
+					if(value.equals("")) continue;
+					savePath += File.separator + value;
+					File save = new File(savePath);
+					fi.write(save);
+					pMap.put(name, "/upload" + File.separator + value);
+				}
+			}
+			
+			System.out.println(pMap);
+			
+		} catch (FileUploadException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lis.updateLibraryInfo(pMap);
 	}
  	
  	

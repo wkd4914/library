@@ -37,7 +37,7 @@
   	insert into library_info(lino, liprice, liname, ligenre, lidate, lipublisher, liwriter, liwhere, liimg, libook, listar)
    	values(seq_lino.nextval, #{liprice}, #{liname},#{ligenre}, #{lidate}, #{lipublisher},#{liwriter}, #{liwhere}, #{liimg}, #{libook},#{listar})
    </insert>
-   <update id="updateLibraryInfo" parameterType="li">
+   <update id="updateLibraryInfo" parameterType="map">
    	update library_info
    	<set>
    		<if test="liprice!=null">liprice = #{liprice},</if>
@@ -47,7 +47,6 @@
    		<if test="lipublisher!=null">lipublisher = #{lipublisher},</if>
    		<if test="liwriter!=null">liwriter = #{liwriter},</if>
    		<if test="liwhere!=null">liwhere = #{liwhere},</if>
-   		<if test="liimg!=null">liimg = #{liimg},</if>
    		<if test="libook!=null">libook = #{libook},</if>
    		<if test="listar!=null">listar = #{listar},</if>
   	</set>

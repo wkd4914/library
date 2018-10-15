@@ -204,7 +204,7 @@ tfoot th:after {
     left: auto;
 }
 
-/* 테스트 */
+/* 테스트 반갑다는 인사.*/
 .helloworld_box {
 	text-align:center;
 }
@@ -218,6 +218,46 @@ tfoot th:after {
 	z-index:100;
 }
 
+ /* 네비 게이션 */
+
+body { margin: 0; }
+.zeta-menu-bar {
+  background: hotpink;
+  display: inline-block;
+  width: 100%;
+}
+.zeta-menu { margin: 0; padding: 0; }
+.zeta-menu li {
+  float: left;
+  list-style:none;
+  position: relative;
+}
+.zeta-menu li:hover { background: white; }
+.zeta-menu li:hover>a { color: hotpink; }
+.zeta-menu a {
+  color: white;
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+.zeta-menu ul {
+  background: #eee;
+  border: 1px solid silver;
+  display: none;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 180px;
+}
+.zeta-menu ul li { float: none; }
+.zeta-menu ul li:hover { background: #ddd; }
+.zeta-menu ul li:hover a { color: black; }
+.zeta-menu ul a { color: black; }
+.zeta-menu ul ul { left: 100%; top: 0; }
+.zeta-menu ul ul li {float:left; margin-right:10px;}
+
+</style>
 
 </body>
 </html>

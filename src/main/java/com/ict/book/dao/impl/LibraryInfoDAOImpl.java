@@ -48,9 +48,9 @@ public class LibraryInfoDAOImpl implements LibraryInfoDAO {
 	}
 
 	@Override
-	public int updateLibraryInfo(LibraryInfo li) {
+	public int updateLibraryInfo(Map<String, String> pMap) {
 		// TODO Auto-generated method stub
-		return ss.update("SQL.LIBRARYINFO.updateLibraryInfo",li);
+		return ss.update("SQL.LIBRARYINFO.updateLibraryInfo",pMap);
 	}
 
 }
