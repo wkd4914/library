@@ -164,7 +164,7 @@ window.addEventListener('load',function(){
       	<li><a href="https://www.coupang.com/np/search?q=%EB%B2%A0%EC%8A%A4%ED%8A%B8%EC%85%80%EB%9F%AC%20%EC%86%8C%EC%84%A4&src=1042001&spec=10304102&addtag=200&ctag=%EB%B2%A0%EC%8A%A4%ED%8A%B8%EC%85%80%EB%9F%AC%20%EC%86%8C%EC%84%A4&lptag=%EB%B2%A0%EC%8A%A4%ED%8A%B8%EC%85%80%EB%9F%AC%EC%86%8C%EC%84%A4&itime=20181015153605&wPcid=15395853658001717935640&wRef=search.naver.com&wTime=20181015153605&redirect=landing&forceBypass=Y&sid=RSA1&pageType=SEARCH&pageValue=%EB%B2%A0%EC%8A%A4%ED%8A%B8%EC%85%80%EB%9F%AC+%EC%86%8C%EC%84%A4">쿠팡 베스트샐러</a></li>
       </ul>
     </li> 
-    <li><a href="#">4번 메뉴</a></li> 
+    <!-- <li><a href="#">4번 메뉴</a></li>  -->
   </ul>
 </div>
 
@@ -176,6 +176,8 @@ window.addEventListener('load',function(){
  
 </p>
 <form name="form" enctype="multipart/form-data">
+
+</form>
 <table border="1">
 	<thead>
 		<tr>
@@ -202,19 +204,8 @@ window.addEventListener('load',function(){
 	
 </table>
 
-</form>
 
-<div id="menu">
-  <div><a href="#"><span>검색란위치</span>
-    <p class="arrow_box">테이블 위쪽에 있습니다.</p></a>
-  </div>
-  <div><a href="#"><span>처음화면으로</span>
-    <p class="arrow_box">HOME버튼</p></a>
-  </div>
-  <div><a href="#"><span>추가란위치</span>
-    <p class="arrow_box">오른쪽버튼</p></a>
-  </div>
-</div>
+
 
 <button onclick ="addLibraryInfo()">추가하고자 하는 책이 있을경우 Click 해주세요</button>
 
@@ -257,7 +248,8 @@ function search(){
 	}
 	
 	
-
+		
+		/* 인삿말 증식 위한 소스 */
 function cloneHelloWorld(o){
 
 	var pos  = $(o).offset();
@@ -286,8 +278,6 @@ function cloneHelloWorld(o){
 
 
 
-
-
 function addLibraryInfo(){
 		var html = '<tr>';
 		html += '<td><input type="text" data-idx="' + idx +'" id="lino" value=""></td>';
@@ -302,7 +292,7 @@ function addLibraryInfo(){
 		html += '<td><input type="text" data-idx="' + idx +'" id="libook" value=""></td>';	
 		html += '<td><input type="text" data-idx="' + idx +'" id="listar" value=""></td>';
 		html += '<td><button type="button" onclick="saveLibraryInfo()">저장</button></td>';
-		html += '<td><button type="button" onclick="checkValue">check</button></td>';
+		html += '<td><button type="button" onclick="checkValue()">check</button></td>';
 		
 		html += '<td><button type="button" onclick="savelibraryInfo1('+idx+')" type="button">사진</button></td>';
 
@@ -310,6 +300,8 @@ function addLibraryInfo(){
 		document.querySelector('#liBody').insertAdjacentHTML('beforeend',html);
 
 
+		/* 파일 유효성 검사 */
+		
  function checkValue(){     
 	var nameObj = document.querySelector('#liname');
 	var priceObj = document.querySelector('#liprice');
@@ -465,6 +457,8 @@ function updateLibraryInfo1(pIdx){
 	xhr.send(formData);
 }
 	
+ 
+ 
  
 function deleteLibraryInfo(lino){
 	

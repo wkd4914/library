@@ -14,7 +14,7 @@
 
 <style type="text/css">
 
-.helloworld {
+.helloworld2 {
 	background-image:url("http://superkts.com/img/jjal/raccoon01.jpg");
 	background-position:center;
 	background-repeat:no-repeat;
@@ -23,7 +23,7 @@
 	position:relative;
 	width:400px;
 }
-.helloworld .text {
+.helloworld2 .text {
 	bottom:0;
 	color:white;
 	font-family:verdana !important;
@@ -37,23 +37,23 @@
 
 </style>
 
-<div class="helloworld">
+<div class="helloworld2">
 	<div class="text">Hello</div>
 </div>
-<div class="helloworld">
+<div class="helloworld2">
 	<div class="text">Book store</div>
 </div>
 
 <script>
 
-function helloworld(){
+function helloworld2(){
 	var rnd  = Math.round(Math.random() * 3);
 	var rnd2 = Math.round(Math.random() * 1);
-	$('.helloworld .text').css({ 'bottom':rnd}); // 글자 흔들기
-	$('.helloworld').css({ 'background-position':rnd2 }); // 배경 흔들기
+	$('.helloworld2 .text').css({ 'bottom':rnd}); // 글자 흔들기
+	$('.helloworld2').css({ 'background-position':rnd2 }); // 배경 흔들기
 }
 
-setInterval(helloworld, 10);
+setInterval(helloworld2, 10);
 
 
 

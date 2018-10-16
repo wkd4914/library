@@ -204,7 +204,7 @@ tfoot th:after {
     left: auto;
 }
 
-/* 테스트 book store*/
+/* 테스트 반갑다는 인사.*/
 .helloworld_box {
 	text-align:center;
 }
@@ -257,61 +257,7 @@ body { margin: 0; }
 .zeta-menu ul ul { left: 100%; top: 0; }
 .zeta-menu ul ul li {float:left; margin-right:10px;}
 
-
- /* 테스트 3개의 말풍선 */
-
-#menu {
-  width: 420px;
-  margin: 0 auto;
-}
-#menu div {
-  position: relative;
-  width: 28%;
-  float: left;
-  margin: 1%;
-  text-align: center;
-  
-}
-#menu div a {
-    display: block;
-    padding: 1%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.arrow_box {
-  display: none;
-  position: absolute;
-  padding: 16px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;  
-  border-radius: 8px;
-  background: #333;
-  color: #fff;
-}
-
-.arrow_box:after {
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  margin-left: -10px;
-  border: black;/* solid transparent */
-  border-color: rgba(51, 51, 51, 0);
-  border-bottom-color: #8977ad;
-  border-width: 10px;
-  pointer-events: none;
-  content: " ";
-}
-
-span:hover + p.arrow_box {
-  display: block;
-}
-
-
-
-
+</style>
 
 </body>
 </html>
