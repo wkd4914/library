@@ -37,8 +37,10 @@ $(function(){
 window.addEventListener('load',function(){
 	var conf = {
 			url : '/libraryinfo',
-			success:function(res){
-				res = JSON.parse(res);
+			success:function(res){  	
+				//정리가 안되있는상태
+				res = JSON.parse(res);	
+				//정리를 해줘야 하기떄문에 조각조각해서 정리분석 해줌.
 				var html = '';
 				for(var li of res){
 					html += '<tr>';
